@@ -19,6 +19,7 @@ class HappinessViewController: UIViewController, FaceViewDataSource {
     
     func UpdateUI() {
         faceView?.setNeedsDisplay()
+        title = "\(happiness)"
     }
 
     // happiness is our pathetic little model
