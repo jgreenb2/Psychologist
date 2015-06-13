@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ykq-ve-zxQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E26a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ykq-ve-zxQ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -128,6 +128,42 @@
             </objects>
             <point key="canvasLocation" x="1055" y="-62"/>
         </scene>
+        <!--Text View Controller-->
+        <scene sceneID="WEX-mX-2fx">
+            <objects>
+                <viewController id="MqT-FZ-MDi" customClass="TextViewController" customModule="Psychologist" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5ce-Ee-kp4"/>
+                        <viewControllerLayoutGuide type="bottom" id="pwB-Uw-a3Y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aJL-HS-Ggw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efb-bd-iTN">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="efb-bd-iTN" firstAttribute="bottom" secondItem="pwB-Uw-a3Y" secondAttribute="top" id="5rs-Pr-aWa"/>
+                            <constraint firstAttribute="trailing" secondItem="efb-bd-iTN" secondAttribute="trailing" id="Ocd-D9-PER"/>
+                            <constraint firstItem="efb-bd-iTN" firstAttribute="leading" secondItem="aJL-HS-Ggw" secondAttribute="leading" id="Pqi-fQ-a0c"/>
+                            <constraint firstItem="efb-bd-iTN" firstAttribute="top" secondItem="aJL-HS-Ggw" secondAttribute="top" id="rFC-wD-4qM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="efb-bd-iTN" id="Vbk-Ev-BUQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cb7-8N-U0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1829" y="-62"/>
+        </scene>
         <!--Split View Controller-->
         <scene sceneID="39Z-UP-AJ9">
             <objects>
@@ -141,10 +177,10 @@
             </objects>
             <point key="canvasLocation" x="-566" y="121"/>
         </scene>
-        <!--Happiness View Controller-->
+        <!--Diagnosed Happiness View Controller-->
         <scene sceneID="NrT-5Z-YB8">
             <objects>
-                <viewController id="gAO-RD-dJc" customClass="HappinessViewController" customModule="Psychologist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gAO-RD-dJc" customClass="DiagnosedHappinessViewController" customModule="Psychologist" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="syK-72-mcc"/>
                         <viewControllerLayoutGuide type="bottom" id="w78-Hu-cAH"/>
@@ -170,7 +206,15 @@
                             <constraint firstItem="LrY-q6-l4d" firstAttribute="leading" secondItem="ap5-uc-zUX" secondAttribute="leading" id="zem-Lz-ImN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ElA-fI-Z5i"/>
+                    <navigationItem key="navigationItem" id="ElA-fI-Z5i">
+                        <barButtonItem key="rightBarButtonItem" title="History" id="s8e-Jg-v0Y">
+                            <connections>
+                                <segue destination="MqT-FZ-MDi" kind="popoverPresentation" identifier="Show Diagnostic History" popoverAnchorBarButtonItem="s8e-Jg-v0Y" id="yFO-xf-BbT">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="faceView" destination="LrY-q6-l4d" id="vbP-lY-NeB"/>
                     </connections>
